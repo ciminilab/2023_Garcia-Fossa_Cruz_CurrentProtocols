@@ -6,5 +6,4 @@ setup(name='utils',
       author='Fernanda Fossa',
       author_email='fefossa@gmail.com',
       url='https://github.com/fefossa/2022_Garcia-Fossa_submitted',
-      packages=['distutils', 'distutils.command'],
      )
