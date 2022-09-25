@@ -93,7 +93,7 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', add_moa = False):
     for i in range(len(cmpd_cnc)):
         n = 0
         for j in range(len(corr.index)):
-            if cmpd_cnc[i] == control[0]:
+            if cmpd_cnc[i] == control:
                 corr_dict[cmpd_cnc[n]] = corr.iloc[i][j]
                 n = n+1
     #sort the dictionary on descending form
