@@ -112,7 +112,7 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', add_moa = False):
         moas = np.unique(moas)
         five_most['moa'] = moas
 
-    print('Five compound most correlated to ', control[0])
+    print('Five compound most correlated to ', control)
    
     return five_most
 
