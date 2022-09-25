@@ -307,3 +307,17 @@ def multichoice_plot(df, sort_by):
   ui = multi_checkbox_widget(options_dict)
   out = wid.interactive_output(f, options_dict)
   display(wid.HBox([ui, out]))
+
+def dropdown(input_list):
+  import ipywidgets as widgets
+  global dropdown_output
+  drop_down = widgets.Dropdown(options=input_list,
+                                  description='Choose',
+                                  disabled=False)
+
+  def dropdown_handler(change):
+      global dropdown_output
+      dropdown_output = change.new  # This line isn't working
+  drop_down.observe(dropdown_handler, names='value')
+  display(drop_down)
+  dropdown_output = drop_down.value
