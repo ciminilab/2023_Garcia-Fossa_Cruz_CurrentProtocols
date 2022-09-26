@@ -183,8 +183,10 @@ def representative_median_select(df, list_to_plot = ['DMSO'], sort_by = ['Metada
         #the nuclei center needs to be higher than half box_size and lower than the image_size - half box_size
             if sample['Image_Width_OrigDNA'][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample['Image_Width_OrigDNA'][index] - box_size/2:
                 continue 
+                print('if')
             else: 
                 sample,_ = extract_single_cell_samples(subset,n_cells,cell_selection_method='geometric_median')
+                print('else')
         selected.append(sample.values) 
     # create df from column names and selected cells
     df_selected_smp = pd.DataFrame(columns=df.columns, data=np.concatenate(selected)) 
