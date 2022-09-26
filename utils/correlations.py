@@ -185,7 +185,6 @@ def representative_median_select(df, list_to_plot = ['DMSO'], sort_by = ['Metada
                 continue 
             else: 
                 sample,_ = extract_single_cell_samples(subset,n_cells,cell_selection_method='geometric_median')
-                sample.drop(columns=['clusterLabels'], inplace=True)
         selected.append(sample.values) 
     # create df from column names and selected cells
     df_selected_smp = pd.DataFrame(columns=df.columns, data=np.concatenate(selected)) 
