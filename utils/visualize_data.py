@@ -51,8 +51,8 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
     """    
 
     import hdmedians as hd
-#     from skfda import FDataGrid
-#     from skfda.exploratory.stats import geometric_median    
+    from skfda import FDataGrid
+    from skfda.exploratory.stats import geometric_median    
     cp_features, cp_features_analysis_0 =  extract_feature_names(df_p_s);
     df_p_s, cp_features_analysis = handle_nans(df_p_s,cp_features_analysis_0);
     
