@@ -81,21 +81,21 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
     elif cell_selection_method=='geometric_median':    
     #     method 1
 #         ps_arr=df_p_s[cp_features_analysis].astype(np.float32).values
-        ps_arr=df_p_s[cp_features_analysis].values
-        print(ps_arr)
-        gms=hd.medoid(ps_arr,axis=0)
-        gm_sample_ind=np.where(np.sum((ps_arr-gms),axis=1)==0)[0]
-        df_p_s_gm=df_p_s.loc[gm_sample_ind,:]
-        dff=pd.concat([df_p_s_gm,df_p_s_gm],ignore_index=True)
+        # ps_arr=df_p_s[cp_features_analysis].values
+        # print(ps_arr)
+        # gms=hd.medoid(ps_arr,axis=0)
+        # gm_sample_ind=np.where(np.sum((ps_arr-gms),axis=1)==0)[0]
+        # df_p_s_gm=df_p_s.loc[gm_sample_ind,:]
+        # dff=pd.concat([df_p_s_gm,df_p_s_gm],ignore_index=True)
 
     # #     method 2
-    #     ps_arr=df_p_s[cp_features_analysis].values
-    #     X = FDataGrid(ps_arr)
-    #     gms2 = np.squeeze(geometric_median(X).data_matrix)
-    #     # gm2_sample_ind=np.where(np.sum((ps_arr-gms2),axis=1)==0)[0]
-    #     gm2_sample_ind=np.array([np.argmin(np.sum(abs(ps_arr-gms2),axis=1))])
-    #     df_p_s_gm2=df_p_s.loc[gm2_sample_ind,:]
-    #     dff=pd.concat([df_p_s_gm2,df_p_s_gm2],ignore_index=True)
+        ps_arr=df_p_s[cp_features_analysis].values
+        X = FDataGrid(ps_arr)
+        gms2 = np.squeeze(geometric_medsinglian(X).data_matrix)
+        # gm2_sample_ind=np.where(np.sum((ps_arr-gms2),axis=1)==0)[0]
+        gm2_sample_ind=np.array([np.argmin(np.sum(abs(ps_arr-gms2),axis=1))])
+        df_p_s_gm2=df_p_s.loc[gm2_sample_ind,:]
+        dff=pd.concat([df_p_s_gm2,df_p_s_gm2],ignore_index=True)
         
     return dff,cp_features_analysis
 
