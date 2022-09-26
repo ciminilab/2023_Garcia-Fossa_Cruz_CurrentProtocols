@@ -90,16 +90,17 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
 
     # #     method 2
         ps_arr=df_p_s[cp_features_analysis].values
-        print(ps_arr)
+        print('1',ps_arr)
         X = FDataGrid(ps_arr)
-        print(X)
+        print('2',X)
         gms2 = np.squeeze(geometric_median(X).data_matrix)
-        print(gms2)
+        print('3',gms2)
         # gm2_sample_ind=np.where(np.sum((ps_arr-gms2),axis=1)==0)[0]
         gm2_sample_ind=np.array([np.argmin(np.sum(abs(ps_arr-gms2),axis=1))])
-        print(gm2_sample_ind)
+        print('4',gm2_sample_ind)
         df_p_s_gm2=df_p_s.loc[gm2_sample_ind,:]
-        print(df_p_s_gm2)
+        print('5',df_p_s_gm2)
+        print(df_p_s_gm2.shape)
         dff=pd.concat([df_p_s_gm2,df_p_s_gm2],ignore_index=True)
         
     return dff,cp_features_analysis
