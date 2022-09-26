@@ -179,7 +179,6 @@ def representative_median_select(df, list_to_plot = ['DMSO'], sort_by = ['Metada
     for subgroup in list_to_plot:
         subset = df[df[sort_by] == subgroup]
         sample,_ = extract_single_cell_samples(subset,n_cells,cell_selection_method='geometric_median')
-        sample.drop(columns=['clusterLabels'], inplace=True)
         for index in range(len(sample)):
         #the nuclei center needs to be higher than half box_size and lower than the image_size - half box_size
             if sample['Image_Width_OrigDNA'][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample['Image_Width_OrigDNA'][index] - box_size/2:
