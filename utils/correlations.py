@@ -61,7 +61,7 @@ def insert_corr(df, corr, corr_to = 'DMSO 0.00', sort_by = ['Metadata_Compound_C
     Insert correlation on the original df. This enables plotting images with the correlation values.
     
     """
-    cmpd_cnc = df[sort_by].unique().tolist()
+    cmpd_cnc = corr.index.tolist()
     #create dictionary based on which compound was defined at corr_to
     corr_dict = {}
     # print(cmpd_cnc)
@@ -69,7 +69,7 @@ def insert_corr(df, corr, corr_to = 'DMSO 0.00', sort_by = ['Metadata_Compound_C
         n = 0
         for j in range(len(corr.index)):
             if corr_to in cmpd_cnc[i]:
-                corr_dict[cmpd_cnc[n]] = corr.iloc[i][n]
+                corr_dict[cmpd_cnc[n]] = corr.iloc[i][j]
                 # print(i, j, n)
                 n = n + 1
     print(corr_dict)
