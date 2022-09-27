@@ -81,6 +81,7 @@ def insert_corr(df, corr, corr_to = 'DMSO 0.00', sort_by = ['Metadata_Compound_C
                 df['Correlation_to'].values[vals] = float(value)
     #format corr values 
     df['Correlation_to'] = df['Correlation_to'].map('{:.2f}'.format)
+    df['Correlation_to'] = df['Correlation_to'].astype(float)
     
     return df 
 
