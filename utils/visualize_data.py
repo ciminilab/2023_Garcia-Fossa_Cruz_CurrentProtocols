@@ -206,7 +206,7 @@ def clusteringHists(DirsDict,wtANDmtDf_scaled,contLabel,d,nClus,feats2use,compar
     return
 
 
-def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_column=None,compressed=False,compressed_im_size=None, correlation=False):
+def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_column=None,compressed=False,compressed_im_size=None, correlation=False, moa=False):
     """ 
     This function plots the single cells correspoding to the input single cell dataframe
   
@@ -315,6 +315,14 @@ def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_col
                 axarr[index,0].set_ylabel(imylabel, rotation='horizontal', ha='right', va='center')
         else:
             pass
+
+        if moa==True:
+            imylabel=sc_df.loc[index,'Metadata_moa'] 
+            if ' ' in imylabel:
+                newimylabel = imylabel.replace(' ', '\n')
+                axarr[index,0].set_xlabel(newimylabel, rotation='horizontal', ha='right', va='center')
+            else:
+                axarr[index,0].set_xlabel(imylabel, rotation='horizontal', ha='right', va='center')
     
 #         Well=sc_df.loc[index,'Metadata_Well']
 #         Site=str(sc_df.loc[index,'Metadata_Site'])
