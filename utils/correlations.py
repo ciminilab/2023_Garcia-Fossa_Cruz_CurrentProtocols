@@ -322,3 +322,11 @@ def dropdown(input_list):
   drop_down.observe(dropdown_handler, names='value')
   display(drop_down)
   dropdown_output = drop_down.value
+
+def stringToBool(correlation_input):
+    if correlation_input == 'yes':
+       return True
+    elif correlation_input == 'no':
+       return False
+    else:
+      raise ValueError
