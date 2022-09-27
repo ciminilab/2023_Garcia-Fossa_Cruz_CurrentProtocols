@@ -89,7 +89,7 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', add_moa = False):
     """
     Plot a table with the five compounds more closely correlated to the control choose by the user
     """
-    cmpd_cnc = df['Metadata_Compound_Concentration'].unique().tolist()
+    cmpd_cnc = corr.index.tolist()
     corr_dict = {}
     for i in range(len(cmpd_cnc)):
         n = 0
