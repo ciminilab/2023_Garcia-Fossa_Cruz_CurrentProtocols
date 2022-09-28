@@ -112,7 +112,6 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', sort_by = ['Metadata_Compoun
         moas = np.array(moas)
         moas, ind = np.unique(moas, return_index=True)
         moas = moas[np.argsort(ind)]
-        moas = np.unique(moas)
         five_most['moa'] = moas
 
     print('Five compound most correlated to ', control)
