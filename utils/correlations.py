@@ -110,6 +110,8 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', add_moa = False):
                     moa = df['Metadata_moa'].values[cmp2]
                     moas.append(moa)
         moas = np.array(moas)
+        moas, ind = np.unique(moas, return_index=True)
+        moas = moas[np.argsort(ind)]
         moas = np.unique(moas)
         five_most['moa'] = moas
 
