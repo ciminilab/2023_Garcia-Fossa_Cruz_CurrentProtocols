@@ -85,7 +85,7 @@ def insert_corr(df, corr, corr_to = 'DMSO 0.00', sort_by = ['Metadata_Compound_C
     
     return df 
 
-def five_most_corr(df, corr, control = 'DMSO 0.00', add_moa = False):
+def five_most_corr(df, corr, control = 'DMSO 0.00', sort_by = ['Metadata_Compound_Concentration'], add_moa = False):
     """
     Plot a table with the five compounds more closely correlated to the control choose by the user
     """
@@ -105,8 +105,8 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', add_moa = False):
     if add_moa:
         moas = []
         for cmp in range(len(five_most['Compound'].values)):
-            for cmp2 in range(len(df['Metadata_Compound_Concentration'].values)):
-                if five_most['Compound'].values[cmp] == df['Metadata_Compound_Concentration'].values[cmp2]:
+            for cmp2 in range(len(df[sort_by].values)):
+                if five_most['Compound'].values[cmp] == df[sort_by].values[cmp2]:
                     moa = df['Metadata_moa'].values[cmp2]
                     moas.append(moa)
         moas = np.array(moas)
