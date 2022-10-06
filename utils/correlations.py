@@ -21,7 +21,7 @@ def pycytominer_operations(df, strata = 'Metadata_Compound_Concentration'):
     df: dataframe with single cell information
     strata: Columns to groupby and aggregate rows based on the column or list of columns.
     """
-    df_norm = pycytominer.normalize(df, method = 'mad_robustize', mad_robustize_epsilon = 0)
+    df_norm = pycytominer.normalize(df, method = 'mad_robustize', mad_robustize_epsilon = 0, samples = "Metadata_Compound == 'DMSO'")
     df_selected = pycytominer.feature_select(df_norm, blocklist_file = 'blocklist_features.txt')
     print('Numbers of columns dropped after feature selection: ',df.shape[1] - df_selected.shape[1])
     df_ag = pycytominer.aggregate(df_selected, strata = strata)
