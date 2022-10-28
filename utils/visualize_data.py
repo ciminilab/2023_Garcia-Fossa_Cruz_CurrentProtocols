@@ -285,12 +285,20 @@ def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_col
                 imPath = os.path.abspath(imJoinPath)
             
                 imD=skimage.io.imread(imPath)
-                imD1=exposure.rescale_intensity(imD,in_range=(imD.min(),np.percentile(imD, 99.95)))
-                clim_max=imD1.max()
+                if rescale:
+                    imD1=exposure.rescale_intensity(imD,in_range=(imD.min(),np.percentile(imD, 99.95)))
+                    clim_max=imD1.max()
+                else:
+                    imD1 = imD
                 
             imD_cropped=imD1[yCenter-halfBoxSize:yCenter+halfBoxSize,xCenter-halfBoxSize:xCenter+halfBoxSize]
 #             axarr[index,cpi].imshow(imD,cmap='gray',clim=(0, maxRanges[c]));axarr[0,cpi].set_title(c);
-            axarr[index,cpi].imshow(imD_cropped,cmap='gray',clim=(0, clim_max));axarr[0,cpi].set_title(c);
+            if rescale:
+                axarr[index,cpi].imshow(imD_cropped,cmap='gray',clim=(0, clim_max));axarr[0,cpi].set_title(c);
+                print(imD_cropped, 'rescaled')
+            else:
+                axarr[index,cpi].imshow(imD_cropped,cmap='gray');axarr[0,cpi].set_title(c);
+                print(imD_cropped, 'no rescaled')
             cpi+=1        
         
         ## add the labels in a way that when its a name with more than 2 words, it will split to the next line
