@@ -206,7 +206,7 @@ def clusteringHists(DirsDict,wtANDmtDf_scaled,contLabel,d,nClus,feats2use,compar
     return
 
 
-def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_column=None,compressed=False,compressed_im_size=None, correlation=False, moa=False):
+def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_column=None,compressed=False,compressed_im_size=None, correlation=False, moa=False, rescale=False):
     """ 
     This function plots the single cells correspoding to the input single cell dataframe
   
