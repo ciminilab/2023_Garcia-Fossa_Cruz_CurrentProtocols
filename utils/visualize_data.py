@@ -295,10 +295,8 @@ def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_col
 #             axarr[index,cpi].imshow(imD,cmap='gray',clim=(0, maxRanges[c]));axarr[0,cpi].set_title(c);
             if rescale:
                 axarr[index,cpi].imshow(imD_cropped,cmap='gray',clim=(0, clim_max));axarr[0,cpi].set_title(c);
-                print(imD_cropped, 'rescaled')
             else:
                 axarr[index,cpi].imshow(imD_cropped,cmap='gray');axarr[0,cpi].set_title(c);
-                print(imD_cropped, 'no rescaled')
             cpi+=1        
         
         ## add the labels in a way that when its a name with more than 2 words, it will split to the next line
@@ -575,7 +573,7 @@ def normalize(img):
 # #     img = skimage.img_as_ubyte(image)
 # #     print(image.max(),image.min())
 #     return imageJab
-def visualize_image(channels,sc_df,title="",label=False,label_column=None,compressed=False,compressed_im_size=None):
+def visualize_image(channels,sc_df,title="",label=False,label_column=None,compressed=False,compressed_im_size=None,rescale=False):
     """ 
     This function plots the images correspoding to the chosen wells
   
@@ -625,9 +623,15 @@ def visualize_image(channels,sc_df,title="",label=False,label_column=None,compre
                 imPath = os.path.abspath(imJoinPath)
             
                 imD=skimage.io.imread(imPath)
-                imD1=exposure.rescale_intensity(imD,in_range=(imD.min(),np.percentile(imD, 99.95)))
-                clim_max=imD1.max()
-            axarr[index,cpi].imshow(imD1,cmap='gray',clim=(0, clim_max));axarr[0,cpi].set_title(c);
+                if rescale:
+                    imD1=exposure.rescale_intensity(imD,in_range=(imD.min(),np.percentile(imD, 99.95)))
+                    clim_max=imD1.max()
+                else:
+                    imD1 = imD
+            if rescale:
+                axarr[index,cpi].imshow(imD1,cmap='gray',clim=(0, clim_max));axarr[0,cpi].set_title(c);
+            else:
+                axarr[index,cpi].imshow(imD1,cmap='gray');axarr[0,cpi].set_title(c);
             cpi+=1        
         
         ## add the labels in a way that when its a name with more than 2 words, it will split to the next line
