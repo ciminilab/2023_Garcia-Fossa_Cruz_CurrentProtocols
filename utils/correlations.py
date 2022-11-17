@@ -118,13 +118,12 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', sort_by = ['Metadata_Compoun
    
     return five_most
 
-def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False):
+def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False, n_cells = 1):
     """
     Split df to plot random cells. 
     To avoid cells to close to the border we use the following statements: 
     Nuclei_location_X and Nuclei_location_Y needs to be higher than the half_box_size (exlude Y and X low values) and lower than pic_size - half_box_size (exlude Y and X higher values)
     """
-    n_cells = int(input('How many cells would you like to plot for each subgroup?'))
     selected = []
     for subgroup in list_to_plot:
         subset = df[df[sort_by] == subgroup] 
@@ -144,11 +143,10 @@ def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], 
 
     return df_selected_smp
 
-def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False):
+def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False, n_cells = 1):
     """
     
     """
-    n_cells = int(input('How many cells would you like to plot for each group?'))
     selected = []
     cols = []
     for subgroup in list_to_plot:
@@ -171,11 +169,10 @@ def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metada
     
     return df_selected_smp
 
-def representative_median_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False):
+def representative_median_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False, n_cells = 1):
     """
     
     """
-    n_cells = int(input('How many cells would you like to plot for each group?'))
     selected = []
     cols = []
     for subgroup in list_to_plot:
