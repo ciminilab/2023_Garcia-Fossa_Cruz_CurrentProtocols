@@ -1,0 +1,385 @@
+Metadata_Well,Metadata_Concentration,Metadata_moa,Metadata_Compound
+A01,0.00,DMSO,DMSO
+A02,0.00,DMSO,DMSO
+A03,0.00,DMSO,DMSO
+A04,0.00,DMSO,DMSO
+A05,0.00,DMSO,DMSO
+A06,0.00,DMSO,DMSO
+A07,10.00,HSP inhibitor,XL888
+A08,3.33,HSP inhibitor,XL888
+A09,1.11,HSP inhibitor,XL888
+A10,0.37,HSP inhibitor,XL888
+A11,0.12,HSP inhibitor,XL888
+A12,0.04,HSP inhibitor,XL888
+A13,10.00,adrenergic receptor antagonist,metoprolol
+A14,3.33,adrenergic receptor antagonist,metoprolol
+A15,1.11,adrenergic receptor antagonist,metoprolol
+A16,0.37,adrenergic receptor antagonist,metoprolol
+A17,0.12,adrenergic receptor antagonist,metoprolol
+A18,0.04,adrenergic receptor antagonist,metoprolol
+A19,10.00,cyclooxygenase inhibitor,nepafenac
+A20,3.33,cyclooxygenase inhibitor,nepafenac
+A21,1.11,cyclooxygenase inhibitor,nepafenac
+A22,0.37,cyclooxygenase inhibitor,nepafenac
+A23,0.12,cyclooxygenase inhibitor,nepafenac
+A24,0.04,cyclooxygenase inhibitor,nepafenac
+B01,0.00,DMSO,DMSO
+B02,0.00,DMSO,DMSO
+B03,0.00,DMSO,DMSO
+B04,0.00,DMSO,DMSO
+B05,0.00,DMSO,DMSO
+B06,0.00,DMSO,DMSO
+B07,10.00,microtubule stabilizing agent,ixabepilone
+B08,3.33,microtubule stabilizing agent,ixabepilone
+B09,1.11,microtubule stabilizing agent,ixabepilone
+B10,0.37,microtubule stabilizing agent,ixabepilone
+B11,0.12,microtubule stabilizing agent,ixabepilone
+B12,0.04,microtubule stabilizing agent,ixabepilone
+B13,10.00,dopamine receptor antagonist,raclopride
+B14,3.33,dopamine receptor antagonist,raclopride
+B15,1.11,dopamine receptor antagonist,raclopride
+B16,0.37,dopamine receptor antagonist,raclopride
+B17,0.12,dopamine receptor antagonist,raclopride
+B18,0.04,dopamine receptor antagonist,raclopride
+B19,10.00,RNA polymerase inhibitor,favipiravir
+B20,3.33,RNA polymerase inhibitor,favipiravir
+B21,1.11,RNA polymerase inhibitor,favipiravir
+B22,0.37,RNA polymerase inhibitor,favipiravir
+B23,0.12,RNA polymerase inhibitor,favipiravir
+B24,0.04,RNA polymerase inhibitor,favipiravir
+C01,10.00,CC chemokine receptor antagonist,maraviroc
+C02,3.33,CC chemokine receptor antagonist,maraviroc
+C03,1.11,CC chemokine receptor antagonist,maraviroc
+C04,0.37,CC chemokine receptor antagonist,maraviroc
+C05,0.12,CC chemokine receptor antagonist,maraviroc
+C06,0.04,CC chemokine receptor antagonist,maraviroc
+C07,10.00,isocitrate dehydrogenase inhibitor,AGI-6780
+C08,3.33,isocitrate dehydrogenase inhibitor,AGI-6780
+C09,1.11,isocitrate dehydrogenase inhibitor,AGI-6780
+C10,0.37,isocitrate dehydrogenase inhibitor,AGI-6780
+C11,0.12,isocitrate dehydrogenase inhibitor,AGI-6780
+C12,0.04,isocitrate dehydrogenase inhibitor,AGI-6780
+C13,10.00,bacterial DNA gyrase inhibitor,ciprofloxacin
+C14,3.33,bacterial DNA gyrase inhibitor,ciprofloxacin
+C15,1.11,bacterial DNA gyrase inhibitor,ciprofloxacin
+C16,0.37,bacterial DNA gyrase inhibitor,ciprofloxacin
+C17,0.12,bacterial DNA gyrase inhibitor,ciprofloxacin
+C18,0.04,bacterial DNA gyrase inhibitor,ciprofloxacin
+C19,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+C20,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+C21,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+C22,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+C23,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+C24,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+D01,10.00,histamine receptor antagonist,chlorphenamine
+D02,3.33,histamine receptor antagonist,chlorphenamine
+D03,1.11,histamine receptor antagonist,chlorphenamine
+D04,0.37,histamine receptor antagonist,chlorphenamine
+D05,0.12,histamine receptor antagonist,chlorphenamine
+D06,0.04,histamine receptor antagonist,chlorphenamine
+D07,10.00,HCV inhibitor,clemizole
+D08,3.33,HCV inhibitor,clemizole
+D09,1.11,HCV inhibitor,clemizole
+D10,0.37,HCV inhibitor,clemizole
+D11,0.12,HCV inhibitor,clemizole
+D12,0.04,HCV inhibitor,clemizole
+D13,10.00,adrenergic receptor antagonist,nebivolol
+D14,3.33,adrenergic receptor antagonist,nebivolol
+D15,1.11,adrenergic receptor antagonist,nebivolol
+D16,0.37,adrenergic receptor antagonist,nebivolol
+D17,0.12,adrenergic receptor antagonist,nebivolol
+D18,0.04,adrenergic receptor antagonist,nebivolol
+D19,10.00,antitumor agent|ribonucleotide reductase inhibitor,LY2334737
+D20,3.33,antitumor agent|ribonucleotide reductase inhibitor,LY2334737
+D21,1.11,antitumor agent|ribonucleotide reductase inhibitor,LY2334737
+D22,0.37,antitumor agent|ribonucleotide reductase inhibitor,LY2334737
+D23,0.12,antitumor agent|ribonucleotide reductase inhibitor,LY2334737
+D24,0.04,antitumor agent|ribonucleotide reductase inhibitor,LY2334737
+E01,10.00,MEK inhibitor,PD-184352
+E02,3.33,MEK inhibitor,PD-184352
+E03,1.11,MEK inhibitor,PD-184352
+E04,0.37,MEK inhibitor,PD-184352
+E05,0.12,MEK inhibitor,PD-184352
+E06,0.04,MEK inhibitor,PD-184352
+E07,10.00,glucosidase inhibitor,luteolin
+E08,3.33,glucosidase inhibitor,luteolin
+E09,1.11,glucosidase inhibitor,luteolin
+E10,0.37,glucosidase inhibitor,luteolin
+E11,0.12,glucosidase inhibitor,luteolin
+E12,0.04,glucosidase inhibitor,luteolin
+E13,10.00,interleukin receptor antagonist|STAT inhibitor,lisofylline
+E14,3.33,interleukin receptor antagonist|STAT inhibitor,lisofylline
+E15,1.11,interleukin receptor antagonist|STAT inhibitor,lisofylline
+E16,0.37,interleukin receptor antagonist|STAT inhibitor,lisofylline
+E17,0.12,interleukin receptor antagonist|STAT inhibitor,lisofylline
+E18,0.04,interleukin receptor antagonist|STAT inhibitor,lisofylline
+E19,10.00,HCV inhibitor,ledipasvir
+E20,3.33,HCV inhibitor,ledipasvir
+E21,1.11,HCV inhibitor,ledipasvir
+E22,0.37,HCV inhibitor,ledipasvir
+E23,0.12,HCV inhibitor,ledipasvir
+E24,0.04,HCV inhibitor,ledipasvir
+F01,10.00,dopamine reuptake inhibitor,bupropion
+F02,3.33,dopamine reuptake inhibitor,bupropion
+F03,1.11,dopamine reuptake inhibitor,bupropion
+F04,0.37,dopamine reuptake inhibitor,bupropion
+F05,0.12,dopamine reuptake inhibitor,bupropion
+F06,0.04,dopamine reuptake inhibitor,bupropion
+F07,0.00,DMSO,DMSO
+F08,0.00,DMSO,DMSO
+F09,0.00,DMSO,DMSO
+F10,0.00,DMSO,DMSO
+F11,0.00,DMSO,DMSO
+F12,0.00,DMSO,DMSO
+F13,10.00,acetylcholine receptor agonist,nicotine
+F14,3.33,acetylcholine receptor agonist,nicotine
+F15,1.11,acetylcholine receptor agonist,nicotine
+F16,0.37,acetylcholine receptor agonist,nicotine
+F17,0.12,acetylcholine receptor agonist,nicotine
+F18,0.04,acetylcholine receptor agonist,nicotine
+F19,10.00,mucolytic agent,telmesteine
+F20,3.33,mucolytic agent,telmesteine
+F21,1.11,mucolytic agent,telmesteine
+F22,0.37,mucolytic agent,telmesteine
+F23,0.12,mucolytic agent,telmesteine
+F24,0.04,mucolytic agent,telmesteine
+G01,10.00,adrenergic receptor antagonist,dronedarone
+G02,3.33,adrenergic receptor antagonist,dronedarone
+G03,1.11,adrenergic receptor antagonist,dronedarone
+G04,0.37,adrenergic receptor antagonist,dronedarone
+G05,0.12,adrenergic receptor antagonist,dronedarone
+G06,0.04,adrenergic receptor antagonist,dronedarone
+G07,10.00,HCV inhibitor,PSI-7976
+G08,3.33,HCV inhibitor,PSI-7976
+G09,1.11,HCV inhibitor,PSI-7976
+G10,0.37,HCV inhibitor,PSI-7976
+G11,0.12,HCV inhibitor,PSI-7976
+G12,0.04,HCV inhibitor,PSI-7976
+G13,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+G14,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+G15,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+G16,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+G17,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+G18,20.00,NFkB pathway inhibitor|proteasome inhibitor,bortezomib
+G19,10.00,sterol demethylase inhibitor,fluconazole
+G20,3.33,sterol demethylase inhibitor,fluconazole
+G21,1.11,sterol demethylase inhibitor,fluconazole
+G22,0.37,sterol demethylase inhibitor,fluconazole
+G23,0.12,sterol demethylase inhibitor,fluconazole
+G24,0.04,sterol demethylase inhibitor,fluconazole
+H01,10.00,bacterial cell wall synthesis inhibitor,dicloxacillin
+H02,3.33,bacterial cell wall synthesis inhibitor,dicloxacillin
+H03,1.11,bacterial cell wall synthesis inhibitor,dicloxacillin
+H04,0.37,bacterial cell wall synthesis inhibitor,dicloxacillin
+H05,0.12,bacterial cell wall synthesis inhibitor,dicloxacillin
+H06,0.04,bacterial cell wall synthesis inhibitor,dicloxacillin
+H07,10.00,RAF inhibitor,AZ-628
+H08,3.33,RAF inhibitor,AZ-628
+H09,1.11,RAF inhibitor,AZ-628
+H10,0.37,RAF inhibitor,AZ-628
+H11,0.12,RAF inhibitor,AZ-628
+H12,0.04,RAF inhibitor,AZ-628
+H13,10.00,tubulin polymerization inhibitor,docetaxel
+H14,3.33,tubulin polymerization inhibitor,docetaxel
+H15,1.11,tubulin polymerization inhibitor,docetaxel
+H16,0.37,tubulin polymerization inhibitor,docetaxel
+H17,0.12,tubulin polymerization inhibitor,docetaxel
+H18,0.04,tubulin polymerization inhibitor,docetaxel
+H19,10.00,non-nucleoside reverse transcriptase inhibitor,rilpivirine
+H20,3.33,non-nucleoside reverse transcriptase inhibitor,rilpivirine
+H21,1.11,non-nucleoside reverse transcriptase inhibitor,rilpivirine
+H22,0.37,non-nucleoside reverse transcriptase inhibitor,rilpivirine
+H23,0.12,non-nucleoside reverse transcriptase inhibitor,rilpivirine
+H24,0.04,non-nucleoside reverse transcriptase inhibitor,rilpivirine
+I01,10.00,procollagen C-endopeptidase inhibitor,UK-383367
+I02,3.33,procollagen C-endopeptidase inhibitor,UK-383367
+I03,1.11,procollagen C-endopeptidase inhibitor,UK-383367
+I04,0.37,procollagen C-endopeptidase inhibitor,UK-383367
+I05,0.12,procollagen C-endopeptidase inhibitor,UK-383367
+I06,0.04,procollagen C-endopeptidase inhibitor,UK-383367
+I07,10.00,dopamine receptor agonist,pramipexole
+I08,3.33,dopamine receptor agonist,pramipexole
+I09,1.11,dopamine receptor agonist,pramipexole
+I10,0.37,dopamine receptor agonist,pramipexole
+I11,0.12,dopamine receptor agonist,pramipexole
+I12,0.04,dopamine receptor agonist,pramipexole
+I13,10.00,serine protease inhibitor,nafamostat
+I14,3.33,serine protease inhibitor,nafamostat
+I15,1.11,serine protease inhibitor,nafamostat
+I16,0.37,serine protease inhibitor,nafamostat
+I17,0.12,serine protease inhibitor,nafamostat
+I18,0.04,serine protease inhibitor,nafamostat
+I19,10.00,phosphodiesterase inhibitor,isbufylline
+I20,3.33,phosphodiesterase inhibitor,isbufylline
+I21,1.11,phosphodiesterase inhibitor,isbufylline
+I22,0.37,phosphodiesterase inhibitor,isbufylline
+I23,0.12,phosphodiesterase inhibitor,isbufylline
+I24,0.04,phosphodiesterase inhibitor,isbufylline
+J01,10.00,adrenergic receptor agonist,tizanidine
+J02,3.33,adrenergic receptor agonist,tizanidine
+J03,1.11,adrenergic receptor agonist,tizanidine
+J04,0.37,adrenergic receptor agonist,tizanidine
+J05,0.12,adrenergic receptor agonist,tizanidine
+J06,0.04,adrenergic receptor agonist,tizanidine
+J07,10.00,cytochrome P450 inhibitor,voriconazole
+J08,3.33,cytochrome P450 inhibitor,voriconazole
+J09,1.11,cytochrome P450 inhibitor,voriconazole
+J10,0.37,cytochrome P450 inhibitor,voriconazole
+J11,0.12,cytochrome P450 inhibitor,voriconazole
+J12,0.04,cytochrome P450 inhibitor,voriconazole
+J13,0.00,DMSO,DMSO
+J14,0.00,DMSO,DMSO
+J15,0.00,DMSO,DMSO
+J16,0.00,DMSO,DMSO
+J17,0.00,DMSO,DMSO
+J18,0.00,DMSO,DMSO
+J19,10.00,microtubule inhibitor,cabazitaxel
+J20,3.33,microtubule inhibitor,cabazitaxel
+J21,1.11,microtubule inhibitor,cabazitaxel
+J22,0.37,microtubule inhibitor,cabazitaxel
+J23,0.12,microtubule inhibitor,cabazitaxel
+J24,0.04,microtubule inhibitor,cabazitaxel
+K01,10.00,chelating agent,deferiprone
+K02,3.33,chelating agent,deferiprone
+K03,1.11,chelating agent,deferiprone
+K04,0.37,chelating agent,deferiprone
+K05,0.12,chelating agent,deferiprone
+K06,0.04,chelating agent,deferiprone
+K07,20.00,proteasome inhibitor,MG-132
+K08,20.00,proteasome inhibitor,MG-132
+K09,20.00,proteasome inhibitor,MG-132
+K10,20.00,proteasome inhibitor,MG-132
+K11,20.00,proteasome inhibitor,MG-132
+K12,20.00,proteasome inhibitor,MG-132
+K13,10.00,pyruvate dehydrogenase inhibitor,CPI-613
+K14,3.33,pyruvate dehydrogenase inhibitor,CPI-613
+K15,1.11,pyruvate dehydrogenase inhibitor,CPI-613
+K16,0.37,pyruvate dehydrogenase inhibitor,CPI-613
+K17,0.12,pyruvate dehydrogenase inhibitor,CPI-613
+K18,0.04,pyruvate dehydrogenase inhibitor,CPI-613
+K19,10.00,EGFR inhibitor|protein tyrosine kinase inhibitor,BMS-599626
+K20,3.33,EGFR inhibitor|protein tyrosine kinase inhibitor,BMS-599626
+K21,1.11,EGFR inhibitor|protein tyrosine kinase inhibitor,BMS-599626
+K22,0.37,EGFR inhibitor|protein tyrosine kinase inhibitor,BMS-599626
+K23,0.12,EGFR inhibitor|protein tyrosine kinase inhibitor,BMS-599626
+K24,0.04,EGFR inhibitor|protein tyrosine kinase inhibitor,BMS-599626
+L01,10.00,bacterial cell wall synthesis inhibitor,tebipenem
+L02,3.33,bacterial cell wall synthesis inhibitor,tebipenem
+L03,1.11,bacterial cell wall synthesis inhibitor,tebipenem
+L04,0.37,bacterial cell wall synthesis inhibitor,tebipenem
+L05,0.12,bacterial cell wall synthesis inhibitor,tebipenem
+L06,0.04,bacterial cell wall synthesis inhibitor,tebipenem
+L07,10.00,KATP activator|Kir6 channel (KATP) activator|vasodilator,minoxidil
+L08,3.33,KATP activator|Kir6 channel (KATP) activator|vasodilator,minoxidil
+L09,1.11,KATP activator|Kir6 channel (KATP) activator|vasodilator,minoxidil
+L10,0.37,KATP activator|Kir6 channel (KATP) activator|vasodilator,minoxidil
+L11,0.12,KATP activator|Kir6 channel (KATP) activator|vasodilator,minoxidil
+L12,0.04,KATP activator|Kir6 channel (KATP) activator|vasodilator,minoxidil
+L13,10.00,bacterial 30S ribosomal subunit inhibitor,fusidic-acid
+L14,3.33,bacterial 30S ribosomal subunit inhibitor,fusidic-acid
+L15,1.11,bacterial 30S ribosomal subunit inhibitor,fusidic-acid
+L16,0.37,bacterial 30S ribosomal subunit inhibitor,fusidic-acid
+L17,0.12,bacterial 30S ribosomal subunit inhibitor,fusidic-acid
+L18,0.04,bacterial 30S ribosomal subunit inhibitor,fusidic-acid
+L19,10.00,DNA synthesis inhibitor,fiacitabine
+L20,3.33,DNA synthesis inhibitor,fiacitabine
+L21,1.11,DNA synthesis inhibitor,fiacitabine
+L22,0.37,DNA synthesis inhibitor,fiacitabine
+L23,0.12,DNA synthesis inhibitor,fiacitabine
+L24,0.04,DNA synthesis inhibitor,fiacitabine
+M01,10.00,dihydrofolate reductase inhibitor,trimethoprim
+M02,3.33,dihydrofolate reductase inhibitor,trimethoprim
+M03,1.11,dihydrofolate reductase inhibitor,trimethoprim
+M04,0.37,dihydrofolate reductase inhibitor,trimethoprim
+M05,0.12,dihydrofolate reductase inhibitor,trimethoprim
+M06,0.04,dihydrofolate reductase inhibitor,trimethoprim
+M07,10.00,monoamine oxidase inhibitor,moclobemide
+M08,3.33,monoamine oxidase inhibitor,moclobemide
+M09,1.11,monoamine oxidase inhibitor,moclobemide
+M10,0.37,monoamine oxidase inhibitor,moclobemide
+M11,0.12,monoamine oxidase inhibitor,moclobemide
+M12,0.04,monoamine oxidase inhibitor,moclobemide
+M13,10.00,adrenergic receptor antagonist,esmolol
+M14,3.33,adrenergic receptor antagonist,esmolol
+M15,1.11,adrenergic receptor antagonist,esmolol
+M16,0.37,adrenergic receptor antagonist,esmolol
+M17,0.12,adrenergic receptor antagonist,esmolol
+M18,0.04,adrenergic receptor antagonist,esmolol
+M19,10.00,adrenergic receptor antagonist,bopindolol
+M20,3.33,adrenergic receptor antagonist,bopindolol
+M21,1.11,adrenergic receptor antagonist,bopindolol
+M22,0.37,adrenergic receptor antagonist,bopindolol
+M23,0.12,adrenergic receptor antagonist,bopindolol
+M24,0.04,adrenergic receptor antagonist,bopindolol
+N01,10.00,calcium channel blocker,cinnarazine
+N02,3.33,calcium channel blocker,cinnarazine
+N03,1.11,calcium channel blocker,cinnarazine
+N04,0.37,calcium channel blocker,cinnarazine
+N05,0.12,calcium channel blocker,cinnarazine
+N06,0.04,calcium channel blocker,cinnarazine
+N07,10.00,mTOR inhibitor|PI3K inhibitor,PF-04691502
+N08,3.33,mTOR inhibitor|PI3K inhibitor,PF-04691502
+N09,1.11,mTOR inhibitor|PI3K inhibitor,PF-04691502
+N10,0.37,mTOR inhibitor|PI3K inhibitor,PF-04691502
+N11,0.12,mTOR inhibitor|PI3K inhibitor,PF-04691502
+N12,0.04,mTOR inhibitor|PI3K inhibitor,PF-04691502
+N13,10.00,adrenergic receptor antagonist,labetalol
+N14,3.33,adrenergic receptor antagonist,labetalol
+N15,1.11,adrenergic receptor antagonist,labetalol
+N16,0.37,adrenergic receptor antagonist,labetalol
+N17,0.12,adrenergic receptor antagonist,labetalol
+N18,0.04,adrenergic receptor antagonist,labetalol
+N19,10.00,local anesthetic,oxybuprocaine
+N20,3.33,local anesthetic,oxybuprocaine
+N21,1.11,local anesthetic,oxybuprocaine
+N22,0.37,local anesthetic,oxybuprocaine
+N23,0.12,local anesthetic,oxybuprocaine
+N24,0.04,local anesthetic,oxybuprocaine
+O01,20.00,proteasome inhibitor,MG-132
+O02,20.00,proteasome inhibitor,MG-132
+O03,20.00,proteasome inhibitor,MG-132
+O04,20.00,proteasome inhibitor,MG-132
+O05,20.00,proteasome inhibitor,MG-132
+O06,20.00,proteasome inhibitor,MG-132
+O07,10.00,CDK inhibitor,roscovitine
+O08,3.33,CDK inhibitor,roscovitine
+O09,1.11,CDK inhibitor,roscovitine
+O10,0.37,CDK inhibitor,roscovitine
+O11,0.12,CDK inhibitor,roscovitine
+O12,0.04,CDK inhibitor,roscovitine
+O13,10.00,polarization inhibitor,acecainide
+O14,3.33,polarization inhibitor,acecainide
+O15,1.11,polarization inhibitor,acecainide
+O16,0.37,polarization inhibitor,acecainide
+O17,0.12,polarization inhibitor,acecainide
+O18,0.04,polarization inhibitor,acecainide
+O19,10.00,GABA receptor antagonist|serotonin receptor antagonist,kakonein
+O20,3.33,GABA receptor antagonist|serotonin receptor antagonist,kakonein
+O21,1.11,GABA receptor antagonist|serotonin receptor antagonist,kakonein
+O22,0.37,GABA receptor antagonist|serotonin receptor antagonist,kakonein
+O23,0.12,GABA receptor antagonist|serotonin receptor antagonist,kakonein
+O24,0.04,GABA receptor antagonist|serotonin receptor antagonist,kakonein
+P01,10.00,CCK receptor antagonist,dexloxiglumide
+P02,3.33,CCK receptor antagonist,dexloxiglumide
+P03,1.11,CCK receptor antagonist,dexloxiglumide
+P04,0.37,CCK receptor antagonist,dexloxiglumide
+P05,0.12,CCK receptor antagonist,dexloxiglumide
+P06,0.04,CCK receptor antagonist,dexloxiglumide
+P07,10.00,dopamine receptor antagonist,isofloxythepin
+P08,3.33,dopamine receptor antagonist,isofloxythepin
+P09,1.11,dopamine receptor antagonist,isofloxythepin
+P10,0.37,dopamine receptor antagonist,isofloxythepin
+P11,0.12,dopamine receptor antagonist,isofloxythepin
+P12,0.04,dopamine receptor antagonist,isofloxythepin
+P13,10.00,RNA polymerase inhibitor,PSI-6130
+P14,3.33,RNA polymerase inhibitor,PSI-6130
+P15,1.11,RNA polymerase inhibitor,PSI-6130
+P16,0.37,RNA polymerase inhibitor,PSI-6130
+P17,0.12,RNA polymerase inhibitor,PSI-6130
+P18,0.04,RNA polymerase inhibitor,PSI-6130
+P19,10.00,topoisomerase inhibitor,etoposide
+P20,3.33,topoisomerase inhibitor,etoposide
+P21,1.11,topoisomerase inhibitor,etoposide
+P22,0.37,topoisomerase inhibitor,etoposide
+P23,0.12,topoisomerase inhibitor,etoposide
+P24,0.04,topoisomerase inhibitor,etoposide
