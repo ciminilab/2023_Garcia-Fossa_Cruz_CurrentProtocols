@@ -233,13 +233,13 @@ def visualize_n_SingleCell(channels,sc_df,boxSize,title="",image_width_column='I
             axarr[j,i].set_aspect('auto')
     #scalebar
     if scale_bar:
-        scale_size = ScaleBar(pixel_size, "um", length_fraction=0.5, location = 'lower right', frameon=False, color='w', label_loc=None, scale_bar = False, pixel_size=None)
+        scale_size = ScaleBar(pixel_size, "um", length_fraction=0.5, location = 'lower right', frameon=False, color='w', label_loc=None)
         last_row = (sc_df.shape[:-1][0] - 1)
         last_col = cpi-1
         axarr[last_row,last_col].add_artist(scale_size)
     return f
 
-def visualize_image(channels,sc_df,title="", filename_prefix="FileName_Orig", pathname_prefix="PathName_Orig", label=False,label_column=None,compressed=False,compressed_im_size=None,rescale=False):
+def visualize_image(channels,sc_df,title="", filename_prefix="FileName_Orig", pathname_prefix="PathName_Orig", label=False,label_column=None,compressed=False,compressed_im_size=None,rescale=False, scale_bar=False,pixel_size=None):
     """ 
     This function plots the images correspoding to the chosen wells
   
