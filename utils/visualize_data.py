@@ -98,9 +98,7 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
     return dff,cp_features_analysis
 
 
-def visualize_n_SingleCell(channels,sc_df,boxSize,title="",image_width_column='Image_Width_OrigDNA', filename_prefix="FileName_Orig", pathname_prefix="PathName_Orig",
- label=False,label_column=None,compressed=False,compressed_im_size=None, 
-correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None):
+def visualize_n_SingleCell(channels,sc_df,boxSize,title="",image_width_column='Image_Width_OrigDNA', filename_prefix="FileName_Orig", pathname_prefix="PathName_Orig", label=False,label_column=None,compressed=False,compressed_im_size=None, correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None):
     """ 
     This function plots the single cells correspoding to the input single cell dataframe
   
@@ -241,8 +239,7 @@ correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None)
         axarr[last_row,last_col].add_artist(scale_size)
     return f
 
-def visualize_image(channels,sc_df,title="", filename_prefix="FileName_Orig", pathname_prefix="PathName_Orig",
-    label=False,label_column=None,compressed=False,compressed_im_size=None,rescale=False):
+def visualize_image(channels,sc_df,title="", filename_prefix="FileName_Orig", pathname_prefix="PathName_Orig", label=False,label_column=None,compressed=False,compressed_im_size=None,rescale=False):
     """ 
     This function plots the images correspoding to the chosen wells
   
