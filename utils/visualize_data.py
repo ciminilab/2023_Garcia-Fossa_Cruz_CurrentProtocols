@@ -233,7 +233,7 @@ correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None)
             axarr[j,i].set_aspect('auto')
     #scalebar
     if scale_bar:
-        scale_size = ScaleBar(pixel_size, "um", length_fraction=0.5, location = 'lower right', frameon=False, color='w', label_loc=None)
+        scale_size = ScaleBar(pixel_size, "um", length_fraction=0.5, location = 'lower right', frameon=False, color='w', label_loc=None, scale_bar = False, pixel_size=None)
         last_row = (sc_df.shape[:-1][0] - 1)
         last_col = cpi-1
         axarr[last_row,last_col].add_artist(scale_size)
@@ -255,6 +255,8 @@ def visualize_image(channels,sc_df,title="",label=False,label_column=None,compre
     ++ label: if label = True, it requires the label_column to add the respective names to each row
     
     ++ title
+    ++ scale_bar (bool) default is False, if True will add scale bar to the last image in the lower right
+    ++ pixel_size (float) if scale_bar = True, provide the pixel_size 
     
     Returns: 
     f (object): handle to the figure
@@ -263,6 +265,8 @@ def visualize_image(channels,sc_df,title="",label=False,label_column=None,compre
     import skimage.io
     import numpy as np
     import skimage.util
+    from matplotlib_scalebar.scalebar import ScaleBar
+    
     f, axarr = plt.subplots(sc_df.shape[0], len(channels),figsize=(len(channels)*2,sc_df.shape[0]*2));
     if len(title)>0:
         print(title)
@@ -316,5 +320,12 @@ def visualize_image(channels,sc_df,title="",label=False,label_column=None,compre
             axarr[j,i].xaxis.set_major_locator(plt.NullLocator())
             axarr[j,i].yaxis.set_major_locator(plt.NullLocator())
             axarr[j,i].set_aspect('auto')
+
+    #scalebar
+    if scale_bar:
+        scale_size = ScaleBar(pixel_size, "um", length_fraction=0.5, location = 'lower right', frameon=False, color='w', label_loc=None)
+        last_row = (sc_df.shape[:-1][0] - 1)
+        last_col = cpi-1
+        axarr[last_row,last_col].add_artist(scale_size)
     
     return f
