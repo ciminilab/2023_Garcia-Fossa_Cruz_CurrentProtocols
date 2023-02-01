@@ -98,7 +98,8 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
     return dff,cp_features_analysis
 
 
-def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_column=None,compressed=False,compressed_im_size=None, correlation=False, moa=False, rescale=False):
+def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_column=None,compressed=False,compressed_im_size=None, 
+correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None):
     """ 
     This function plots the single cells correspoding to the input single cell dataframe
   
@@ -120,11 +121,16 @@ def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_col
     ++ compressed_im_size (int), for example for lincs compressed is 1080
     ++ label (bool) default if False, if set to True the next parameter is not optional anymore and should be provided
     ++ label_column (str) provide a string with the name of the column the user want to use as the label
+    ++ scale_bar (bool) default is False, if True will add scale bar to the last image in the lower right
+    ++ pixel_size (float) if scale_bar = True, provide the pixel_size 
     
     Returns: 
     f (object): handle to the figure
   
     """
+    from matplotlib_scalebar.scalebar import ScaleBar
+    import skimage.io
+
     compRatio = 1
     if compressed:
         
@@ -132,23 +138,20 @@ def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_col
         #         compressed_im_size=1080;
         compRatio=(compressed_im_size/original_im_size);
         boxSize = boxSize*compRatio ## compression change the boxSize ratio, so to look the same as non-compressed, this is necessary
-        
-#         sc_df['Nuclei_Location_Center_X']=sc_df['Nuclei_Location_Center_X']*compRatio
-#         sc_df['Nuclei_Location_Center_Y']=sc_df['Nuclei_Location_Center_Y']*compRatio          
+   
 
     
     halfBoxSize=int(boxSize/2);
 #     print(channels)
     
-    import skimage.io
+    
     f, axarr = plt.subplots(sc_df.shape[0], len(channels),figsize=(len(channels)*2,sc_df.shape[0]*2));
     if len(title)>0:
         print(title)
         f.suptitle(title);
     
     f.subplots_adjust(hspace=0, wspace=0)
-
-
+    
 #     maxRanges={"DNA":8000,"RNA":6000,"Mito":6000,"ER":8000,"AGP":6000}
     for index in range(sc_df.shape[0]):
                
@@ -228,7 +231,12 @@ def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_col
             axarr[j,i].xaxis.set_major_locator(plt.NullLocator())
             axarr[j,i].yaxis.set_major_locator(plt.NullLocator())
             axarr[j,i].set_aspect('auto')
-    
+    #scalebar
+    if scale_bar:
+        scale_size = ScaleBar(pixel_size, "um", length_fraction=0.5, location = 'lower right', frameon=False, color='w', label_loc=None)
+        last_row = (sc_df.shape[:-1][0] - 1)
+        last_col = cpi-1
+        axarr[last_row,last_col].add_artist(scale_size)
     return f
 
 def visualize_image(channels,sc_df,title="",label=False,label_column=None,compressed=False,compressed_im_size=None,rescale=False):
