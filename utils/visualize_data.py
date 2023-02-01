@@ -98,7 +98,8 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
     return dff,cp_features_analysis
 
 
-def visualize_n_SingleCell(channels,sc_df,boxSize,title="",label=False,label_column=None,compressed=False,compressed_im_size=None, 
+def visualize_n_SingleCell(channels,sc_df,boxSize,title="",image_width_column='Image_Width_OrigDNA', filename_prefix="FileName_Orig", pathname_prefix="PathName_Orig",
+ label=False,label_column=None,compressed=False,compressed_im_size=None, 
 correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None):
     """ 
     This function plots the single cells correspoding to the input single cell dataframe
@@ -114,6 +115,7 @@ correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None)
            before inputing them to the function, and if not, modify before input!
        
     ++ boxSize (int): Height or Width of the square bounding box
+    ++ image_width_column (str): Name of the column where the image width is given. 
     
     Optional Inputs:
     ++ title (str)
@@ -134,7 +136,7 @@ correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None)
     compRatio = 1
     if compressed:
         
-        original_im_size=sc_df['Image_Width_OrigDNA'].values[0]
+        original_im_size=sc_df[image_width_column].values[0]
         #         compressed_im_size=1080;
         compRatio=(compressed_im_size/original_im_size);
         boxSize = boxSize*compRatio ## compression change the boxSize ratio, so to look the same as non-compressed, this is necessary
@@ -171,11 +173,11 @@ correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None)
                 clim_max=imD1.max()
             else:
 #                 ch_D=sc_df.loc[index,'Image_FileName_Orig'+c];
-                ch_D=sc_df.loc[index,'FileName_Orig'+c];
+                ch_D=sc_df.loc[index,filename_prefix+c];
 #                 print(ch_D)
     #         imageDir=imDir+subjectID+' Mito_Morphology/'
 #                 imageDir=sc_df.loc[index,'Image_PathName_Orig'+c]+'/'
-                imageDir=sc_df.loc[index,'PathName_Orig'+c]+'/'
+                imageDir=sc_df.loc[index,pathname_prefix+c]+'/'
                 imJoinPath=imageDir+ch_D
                 imPath = os.path.abspath(imJoinPath)
             
@@ -239,7 +241,8 @@ correlation=False, moa=False, rescale=False, scale_bar = False, pixel_size=None)
         axarr[last_row,last_col].add_artist(scale_size)
     return f
 
-def visualize_image(channels,sc_df,title="",label=False,label_column=None,compressed=False,compressed_im_size=None,rescale=False):
+def visualize_image(channels,sc_df,title="", filename_prefix="FileName_Orig", pathname_prefix="PathName_Orig",
+    label=False,label_column=None,compressed=False,compressed_im_size=None,rescale=False):
     """ 
     This function plots the images correspoding to the chosen wells
   
@@ -266,7 +269,7 @@ def visualize_image(channels,sc_df,title="",label=False,label_column=None,compre
     import numpy as np
     import skimage.util
     from matplotlib_scalebar.scalebar import ScaleBar
-    
+
     f, axarr = plt.subplots(sc_df.shape[0], len(channels),figsize=(len(channels)*2,sc_df.shape[0]*2));
     if len(title)>0:
         print(title)
@@ -287,8 +290,8 @@ def visualize_image(channels,sc_df,title="",label=False,label_column=None,compre
                     
                 clim_max=imD1.max()
             else:
-                ch_D=sc_df.loc[index,'FileName_Orig'+c];
-                imageDir=sc_df.loc[index,'PathName_Orig'+c]+'/'
+                ch_D=sc_df.loc[index,filename_prefix+c];
+                imageDir=sc_df.loc[index,pathname_prefix+c]+'/'
                 imJoinPath=imageDir+ch_D
                 imPath = os.path.abspath(imJoinPath)
             
