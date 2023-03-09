@@ -118,7 +118,7 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', sort_by = ['Metadata_Compoun
    
     return five_most
 
-def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False, n_cells = 1):
+def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, col_img_size = 'Image_Width_OrigDNA', correlation = False, n_cells = 1):
     """
     Split df to plot random cells. 
     To avoid cells to close to the border we use the following statements: 
@@ -130,7 +130,7 @@ def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], 
         sample = subset.reset_index(drop=True).sample(n_cells, replace = False).reset_index(drop=True) #choose n random cells
         for index in range(len(sample)):
         #the nuclei center needs to be higher than half box_size and lower than the image_size - half box_size
-            if sample['Image_Width_OrigDNA'][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample['Image_Width_OrigDNA'][index] - box_size/2:
+            if sample[col_img_size][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample[col_img_size][index] - box_size/2:
                 continue 
             else: 
                 sample = subset.reset_index(drop=True).sample(n_cells, replace = False).reset_index(drop=True)
@@ -143,7 +143,7 @@ def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], 
 
     return df_selected_smp
 
-def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False, n_cells = 1):
+def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, col_img_size = 'Image_Width_OrigDNA', correlation = False, n_cells = 1):
     """
     
     """
@@ -155,7 +155,7 @@ def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metada
         sample.drop(columns=['clusterLabels'], inplace=True)
         for index in range(len(sample)):
         #the nuclei center needs to be higher than half box_size and lower than the image_size - half box_size
-            if sample['Image_Width_OrigDNA'][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample['Image_Width_OrigDNA'][index] - box_size/2:
+            if sample[col_img_size][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample[col_img_size][index] - box_size/2:
                 continue 
             else: 
                 sample,_ = extract_single_cell_samples(subset,n_cells,cell_selection_method='representative')
