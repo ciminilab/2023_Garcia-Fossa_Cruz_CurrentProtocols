@@ -45,10 +45,10 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
     import hdmedians as hd
     from skfda import FDataGrid
     from skfda.exploratory.stats import geometric_median 
-    df_p_s_copy = df_p_s.copy()   
-    cp_features, cp_features_analysis =  extract_feature_names(df_p_s_copy);
+    # df_p_s_copy = df_p_s.copy()   
+    cp_features, cp_features_analysis =  extract_feature_names(df_p_s);
     # df_p_s, cp_features_analysis = handle_nans(df_p_s,cp_features_analysis_0);
-    df_p_s = df_p_s_copy[cp_features_analysis]
+    df_p_s = df_p_s.copy()
     
     
 #     print("heloo")
@@ -57,7 +57,7 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
         dff=df_p_s.reset_index(drop=True).sample(n = n_cells, replace = False).reset_index(drop=True)
 
     elif cell_selection_method=='representative': 
-        df_p_s[cp_features_analysis] = df_p_s[cp_features_analysis].interpolate()
+        # df_p_s[cp_features_analysis] = df_p_s[cp_features_analysis].interpolate()
         if df_p_s.shape[0]>60:
             n_cells_in_each_cluster_unif=30
         else:
@@ -66,7 +66,7 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
         n_clusts=int(df_p_s.shape[0]/n_cells_in_each_cluster_unif) 
         kmeans = KMeans(n_clusters=n_clusts).fit(np.nan_to_num(df_p_s[cp_features_analysis].values))
         clusterLabels=kmeans.labels_
-        df_p_s['clusterLabels']=clusterLabels;
+        df_p_s.loc[:,'clusterLabels']=clusterLabels;
         mean_clus=kmeans.predict(df_p_s[cp_features_analysis].mean().values[np.newaxis,])
         df_ps=df_p_s[df_p_s["clusterLabels"]==mean_clus[0]]
         dff=df_ps.reset_index(drop=True).sample(n = np.min([n_cells,df_ps.shape[0]]), replace = False).reset_index(drop=True)
