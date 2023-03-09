@@ -195,23 +195,44 @@ def representative_median_select(df, list_to_plot = ['DMSO'], sort_by = ['Metada
     
     return df_selected_smp
 
-def add_path(df, images_dir, channels = ["DNA","ER","RNA","AGP","Mito"], compressed = False, compressed_format = None):
+def add_path(df, images_dir, channels = ["DNA","ER","RNA","AGP","Mito"], compressed = False, pathname_prefix = 'PathName_Orig', filename_prefix = 'Image_FileName_Orig', compressed_format = None, unique_dir = False, unique_dir_column = None):
     """
     Take path to images provided by the user and add to the dataframe
 
     If compressed, provide compressed_format for your images: it can be png, jpeg, jpg
     """
+    import glob
+    import os
+
     df_random_comp = df.copy() #do a copy
         
-    if compressed:
-        for ch in channels:
-            df_random_comp["PathName_Orig"+ch] = images_dir
-            df_random_comp["FileName_Orig"+ch] = df_random_comp["Image_FileName_Orig"+ch].apply(lambda x: x.replace("tiff", compressed_format))
+    for ch in channels:
+        if compressed:
+            df_random_comp["FileName_Orig"+ch] = df_random_comp[filename_prefix+ch].apply(lambda x: x.replace("tiff", compressed_format))
+        if not compressed:
+            df_random_comp["FileName_Orig"+ch] = df_random_comp[filename_prefix+ch]
+    
+    for ch in channels:
+        if unique_dir:
+            df_random_comp[pathname_prefix+ch] = 'NaN'
+            paths_lists = glob.glob(images_dir+'/**/**/**', recursive=True)
+            paths_df = []
+            for files in df_random_comp["FileName_Orig"+ch]:
+                paths_df.append(files)
 
-    if not compressed:
-        for ch in channels:
-            df_random_comp["PathName_Orig"+ch] = images_dir
-            df_random_comp["FileName_Orig"+ch] = df_random_comp["Image_FileName_Orig"+ch]
+            paths_filtered = []
+            for i in paths_df:
+                for j in paths_lists:
+                    if i in j:
+                        paths_filtered.append(j)
+            
+            for val in range(len(df_random_comp.values)):
+                for paths in paths_filtered:
+                    if df_random_comp.loc[val, "FileName_Orig"+ch] in paths:
+                        if df_random_comp.loc[val, unique_dir_column] in paths:
+                            df_random_comp.loc[val, pathname_prefix+ch] = os.path.split(paths)[0]
+        if not unique_dir:
+            df_random_comp[pathname_prefix+ch] = images_dir
     
     return df_random_comp
 
