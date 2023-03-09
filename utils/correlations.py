@@ -211,7 +211,8 @@ def add_path(df, images_dir, channels = ["DNA","ER","RNA","AGP","Mito"], compres
             df_random_comp["FileName_Orig"+ch] = df_random_comp[filename_prefix+ch].apply(lambda x: x.replace("tiff", compressed_format))
         if not compressed:
             df_random_comp["FileName_Orig"+ch] = df_random_comp[filename_prefix+ch]
-    
+    new_filename_prefix = "FileName_Orig"
+
     for ch in channels:
         if unique_dir:
             df_random_comp[pathname_prefix+ch] = 'NaN'
@@ -234,7 +235,7 @@ def add_path(df, images_dir, channels = ["DNA","ER","RNA","AGP","Mito"], compres
         if not unique_dir:
             df_random_comp[pathname_prefix+ch] = images_dir
     
-    return df_random_comp
+    return df_random_comp, new_filename_prefix
 
 def plot_order(df_selected_smp, order = list, col_name = 'Metadata_Compound_Concentration'):
     """"
