@@ -250,6 +250,7 @@ def col_generator(df, cols_to_join = ['Metadata_Compound', 'Metadata_Concentrati
     Create a new column containing information from compound + concentration of compounds
     *cols_to_join: provide columns names to join on, order will be determined by order in this list
     """
+    col_copy = cols_to_join.copy()
     init = cols_to_join.pop(0) #pop the first element of the list
     new_col_temp = [init] #keep the first element in the list
     for cols in cols_to_join:
@@ -257,7 +258,7 @@ def col_generator(df, cols_to_join = ['Metadata_Compound', 'Metadata_Concentrati
         print(temp[1])
         new_col_temp.append(temp[1])
     new_col = ('_'.join(new_col_temp))  #generate the new column name from the list
-    df[new_col] = df[cols_to_join].astype(str).agg(' '.join, axis=1) #transform the column to str and create new metadata
+    df[new_col] = df[col_copy].astype(str).agg(' '.join, axis=1) #transform the column to str and create new metadata
     print("Names of the compounds + concentration: ",  df[new_col].unique())
 
     return df
