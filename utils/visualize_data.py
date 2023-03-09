@@ -46,9 +46,9 @@ def extract_single_cell_samples(df_p_s,n_cells,cell_selection_method):
     from skfda import FDataGrid
     from skfda.exploratory.stats import geometric_median 
     df_p_s_copy = df_p_s.copy()   
-    cp_features, cp_features_analysis_0 =  extract_feature_names(df_p_s_copy);
+    cp_features, cp_features_analysis =  extract_feature_names(df_p_s_copy);
     # df_p_s, cp_features_analysis = handle_nans(df_p_s,cp_features_analysis_0);
-    df_p_s = df_p_s_copy[cp_features_analysis_0]
+    df_p_s = df_p_s_copy[cp_features_analysis]
     
     
 #     print("heloo")
