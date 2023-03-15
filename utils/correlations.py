@@ -118,7 +118,7 @@ def five_most_corr(df, corr, control = 'DMSO 0.00', sort_by = ['Metadata_Compoun
    
     return five_most
 
-def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False, n_cells = 1):
+def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, col_img_size = 'Image_Width_OrigDNA', correlation = False, n_cells = 1):
     """
     Split df to plot random cells. 
     To avoid cells to close to the border we use the following statements: 
@@ -130,7 +130,7 @@ def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], 
         sample = subset.reset_index(drop=True).sample(n_cells, replace = False).reset_index(drop=True) #choose n random cells
         for index in range(len(sample)):
         #the nuclei center needs to be higher than half box_size and lower than the image_size - half box_size
-            if sample['Image_Width_OrigDNA'][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample['Image_Width_OrigDNA'][index] - box_size/2:
+            if sample[col_img_size][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample[col_img_size][index] - box_size/2:
                 continue 
             else: 
                 sample = subset.reset_index(drop=True).sample(n_cells, replace = False).reset_index(drop=True)
@@ -143,7 +143,7 @@ def random_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], 
 
     return df_selected_smp
 
-def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, correlation = False, n_cells = 1):
+def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metadata_Compound'], box_size = 150, col_img_size = 'Image_Width_OrigDNA', correlation = False, n_cells = 1):
     """
     
     """
@@ -155,7 +155,7 @@ def representative_kmeans_select(df, list_to_plot = ['DMSO'], sort_by = ['Metada
         sample.drop(columns=['clusterLabels'], inplace=True)
         for index in range(len(sample)):
         #the nuclei center needs to be higher than half box_size and lower than the image_size - half box_size
-            if sample['Image_Width_OrigDNA'][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample['Image_Width_OrigDNA'][index] - box_size/2:
+            if sample[col_img_size][index] - box_size/2 > sample['Nuclei_Location_Center_X'][index] >  0 + box_size/2 and 0 + box_size/2 < sample['Nuclei_Location_Center_Y'][index] < sample[col_img_size][index] - box_size/2:
                 continue 
             else: 
                 sample,_ = extract_single_cell_samples(subset,n_cells,cell_selection_method='representative')
@@ -195,25 +195,47 @@ def representative_median_select(df, list_to_plot = ['DMSO'], sort_by = ['Metada
     
     return df_selected_smp
 
-def add_path(df, images_dir, channels = ["DNA","ER","RNA","AGP","Mito"], compressed = False, compressed_format = None):
+def add_path(df, images_dir, channels = ["DNA","ER","RNA","AGP","Mito"], compressed = False, pathname_prefix = 'PathName_Orig', filename_prefix = 'Image_FileName_Orig', compressed_format = None, unique_dir = False, unique_dir_column = None):
     """
     Take path to images provided by the user and add to the dataframe
 
     If compressed, provide compressed_format for your images: it can be png, jpeg, jpg
     """
+    import glob
+    import os
+
     df_random_comp = df.copy() #do a copy
         
-    if compressed:
-        for ch in channels:
-            df_random_comp["PathName_Orig"+ch] = images_dir
-            df_random_comp["FileName_Orig"+ch] = df_random_comp["Image_FileName_Orig"+ch].apply(lambda x: x.replace("tiff", compressed_format))
+    for ch in channels:
+        if compressed:
+            df_random_comp["FileName_Orig"+ch] = df_random_comp[filename_prefix+ch].apply(lambda x: x.replace("tiff", compressed_format))
+        if not compressed:
+            df_random_comp["FileName_Orig"+ch] = df_random_comp[filename_prefix+ch]
+    new_filename_prefix = "FileName_Orig"
 
-    if not compressed:
-        for ch in channels:
-            df_random_comp["PathName_Orig"+ch] = images_dir
-            df_random_comp["FileName_Orig"+ch] = df_random_comp["Image_FileName_Orig"+ch]
+    for ch in channels:
+        if unique_dir:
+            df_random_comp[pathname_prefix+ch] = 'NaN'
+            paths_lists = glob.glob(images_dir+'/**/**/**', recursive=True)
+            paths_df = []
+            for files in df_random_comp["FileName_Orig"+ch]:
+                paths_df.append(files)
+
+            paths_filtered = []
+            for i in paths_df:
+                for j in paths_lists:
+                    if i in j:
+                        paths_filtered.append(j)
+            
+            for val in range(len(df_random_comp.values)):
+                for paths in paths_filtered:
+                    if df_random_comp.loc[val, "FileName_Orig"+ch] in paths:
+                        if df_random_comp.loc[val, unique_dir_column] in paths:
+                            df_random_comp.loc[val, pathname_prefix+ch] = os.path.split(paths)[0]
+        if not unique_dir:
+            df_random_comp[pathname_prefix+ch] = images_dir
     
-    return df_random_comp
+    return df_random_comp, new_filename_prefix
 
 def plot_order(df_selected_smp, order = list, col_name = 'Metadata_Compound_Concentration'):
     """"
@@ -224,13 +246,21 @@ def plot_order(df_selected_smp, order = list, col_name = 'Metadata_Compound_Conc
 
     return df_selected_smp
 
-def col_generator(df):
+def col_generator(df, cols_to_join = ['Metadata_Compound', 'Metadata_Concentration']):
     """
     Create a new column containing information from compound + concentration of compounds
+    *cols_to_join: provide columns names to join on, order will be determined by order in this list
     """
-    df['Metadata_Concentration'] = df['Metadata_Concentration'].map('{:.2f}'.format)
-    df['Metadata_Compound_Concentration'] = df['Metadata_Compound'] + ' ' + df['Metadata_Concentration'].astype(str) #Join both columns
-    print("Names of the compounds + concentration: ", df['Metadata_Compound_Concentration'].unique())
+    col_copy = cols_to_join.copy()
+    init = cols_to_join.pop(0) #pop the first element of the list
+    new_col_temp = [init] #keep the first element in the list
+    for cols in cols_to_join:
+        temp = cols.split("_", 1) #only split metadata out
+        print(temp[1])
+        new_col_temp.append(temp[1])
+    new_col = ('_'.join(new_col_temp))  #generate the new column name from the list
+    df[new_col] = df[col_copy].astype(str).agg(' '.join, axis=1) #transform the column to str and create new metadata
+    print("Names of the compounds + concentration: ",  df[new_col].unique())
 
     return df
 

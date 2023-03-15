@@ -1,7 +1,0 @@
-pip install GPy==1.10.0
-pip install hdmedians==0.14.2
-pip install openpyxl==3.0.10
-pip install pyarrow==8.0.0
-pip install git+https://github.com/cytomining/pycytominer
-pip install scikit-fda==0.7.1
-pip install scikit-image==0.18.3

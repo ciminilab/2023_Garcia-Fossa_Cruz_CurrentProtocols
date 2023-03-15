@@ -1,0 +1,20 @@
+name: interpret_profiles
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9.12
+  - pip:
+    - matplotlib-scalebar==0.8.1
+    - GPy==1.10.0
+    - hdmedians==0.14.2
+    - openpyxl==3.0.10
+    - pyarrow==9
+    - git+https://github.com/cytomining/pycytominer
+    - scikit-fda==0.7.1
+    - scikit-image==0.18.3
+    - ipywidgets==7.7.2
+    - seaborn
+    - requests
+
+
